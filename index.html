@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystals Collector</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/CSS/stylesheet.css">
+
+</head>
+
+<body>
+    <!-- <style>
+        header {
+            background-color: gray;
+        }
+        body {
+            background-color: black;
+            color:antiquewhite;
+        }
+        .container {
+            margin-top:10px;
+            margin-bottom: 10px;
+        }
+        .btn-primary {
+            background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal01.jpeg);
+            width: 150px;
+            height: 150px;
+        }
+        .btn-secondary {
+            background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal02.jpeg);
+            width: 150px;
+            height: 150px;
+        }
+        .btn-success {
+            background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal03.jpeg);
+            width: 150px;
+            height: 150px;
+        }
+        .btn-danger {
+            background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal04.jpeg);
+            width: 150px;
+            height: 150px;
+        }
+    </style> -->
+    <header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>CrystalsCollector!</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <p>You will be given a random number at the start of the game.</p>
+                <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your total score.</p>
+                <p>You win the game by matching your total score to random number, you lose the game if your total
+                    score goes above the random number.</p>
+                <p>The value of each crystal is hidden from you until you click on it.</p>
+                <p>Each time win the game starts, the game will cahnge the values of each crystal.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p>Computer Score: </p>
+                <p>
+                    <div id="computerScore">0</div>
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    <div id="userWins">Wins: 0</div>
+                </p>
+                <p>
+                    <div id="userLosses">Losses: 0</div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary">Crystal 01</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-secondary">Crystal 02</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-success">Crystal 03</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger">Crystal 04</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p>
+                    Your total score is:
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <p>
+                    <div id="yourScore">
+                        0
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/Javascript/game.js"></script>
+    
+    <!-- <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            var compScore = Math.floor(Math.random() * 120) + 19;
+            var userScore = Math.floor(Math.random() * 120) + 19;
+            var btnOneScore = Math.floor(Math.random() * 12) + 1;
+            var btnTwoScore = Math.floor(Math.random() * 12) + 1;
+            var btnThreeScore = Math.floor(Math.random() * 12) + 1;
+            var btnFourScore = Math.floor(Math.random() * 12) + 1;
+
+            var wins = 0;
+            var losses = 0;
+
+
+            document.getElementById("computerScore").innerHTML = compScore;
+
+            console.log("comp score: ", compScore);
+            console.log("user score: ", userScore);
+            console.log("btn one: ", btnOneScore);
+            console.log("btn two: ", btnTwoScore);
+            console.log("btn three: ", btnThreeScore);
+            console.log("btn four: ", btnFourScore);
+
+        
+            $(".btn-primary").on("click", function () {
+                userScore = userScore + btnOneScore;
+                document.getElementById("yourScore").innerHTML = userScore;
+                if (userScore === compScore) {
+                    wins = wins + 1;
+                    document.getElementById("userWins").innerHTML = "Wins: " + wins;
+                    
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+
+
+                }
+                else if (userScore > compScore) {
+                    losses = losses + 1;
+                    document.getElementById("userLosses").innerHTML = "Losses: " + losses;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+
+                }
+
+                console.log("New Total Score: ", userScore);
+                console.log("wins: ", wins);
+
+            })
+
+            $(".btn-secondary").on("click", function () {
+                userScore = userScore + btnTwoScore;
+                document.getElementById("yourScore").innerHTML = userScore;
+                if (userScore === compScore) {
+                    wins = wins + 1;
+                    document.getElementById("userWins").innerHTML = "Wins: " + wins;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+
+                }
+                else if (userScore > compScore) {
+                    losses = losses + 1;
+                    document.getElementById("userLosses").innerHTML = "Losses: " + losses;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+                }
+                console.log("New Total Score: ", userScore)
+                console.log("wins: ", wins);
+            })
+
+            $(".btn-success").on("click", function () {
+                userScore = userScore + btnThreeScore;
+                document.getElementById("yourScore").innerHTML = userScore;
+                if (userScore === compScore) {
+                    wins = wins + 1;
+                    document.getElementById("userWins").innerHTML = "Wins: " + wins;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+
+                }
+                else if (userScore > compScore) {
+                    losses = losses + 1;
+                    document.getElementById("userLosses").innerHTML = "Losses: " + losses;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+                }
+                console.log("New Total Score: ", userScore)
+                console.log("wins: ", wins);
+            })
+
+            $(".btn-danger").on("click", function () {
+                userScore = userScore + btnFourScore;
+                document.getElementById("yourScore").innerHTML = userScore;
+                if (userScore === compScore) {
+                    wins = wins + 1;
+                    document.getElementById("userWins").innerHTML = "Wins: " + wins;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+
+                }
+                else if (userScore > compScore) {
+                    losses = losses + 1;
+                    document.getElementById("userLosses").innerHTML = "Losses: " + losses;
+
+                    compScore = Math.floor(Math.random() * 120) + 19;
+                    userScore = Math.floor(Math.random() * 120) + 19;
+                    btnOneScore = Math.floor(Math.random() * 12) + 1;
+                    btnTwoScore = Math.floor(Math.random() * 12) + 1;
+                    btnThreeScore = Math.floor(Math.random() * 12) + 1;
+                    btnFourScore = Math.floor(Math.random() * 12) + 1;
+                    document.getElementById("computerScore").innerHTML = compScore;
+                    document.getElementById("yourScore").innerHTML = 0;
+                    console.log("new comp score: ", compScore);
+                    console.log("new user score: ", userScore);
+                    console.log("new btn one: ", btnOneScore);
+                    console.log("new btn two: ", btnTwoScore);
+                    console.log("new btn three: ", btnThreeScore);
+                    console.log("new btn four: ", btnFourScore);
+                }
+                console.log("New Total Score: ", userScore)
+                console.log("wins: ", wins);
+            })
+
+
+        })
+    </script> -->
+</body>
+
+</html>

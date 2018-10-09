@@ -1,0 +1,31 @@
+header {
+    background-color: gray;
+}
+body {
+    background-color: black;
+    color:antiquewhite;
+}
+.container {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.btn-primary {
+    background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal01.jpeg);
+    width: 150px;
+    height: 150px;
+}
+.btn-secondary {
+    background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal02.jpeg);
+    width: 150px;
+    height: 150px;
+}
+.btn-success {
+    background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal03.jpeg);
+    width: 150px;
+    height: 150px;
+}
+.btn-danger {
+    background-image: url(/Users/befort/Desktop/uofa/Homework/unit-4-game/assets/Images/crystal04.jpeg);
+    width: 150px;
+    height: 150px;
+}
